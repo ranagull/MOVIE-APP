@@ -9,9 +9,9 @@ import MovieList from '../components/movieList'
 
 const ios = Platform.OS == "ios";
 export default function HomeScreen(){
-    const {trending, setTrending} = useState([1,2,3]);
-    const {upcoming, setUpcoming} = useState([1,2,3]);
-    const {topRated, setTopRated} = useState([1,2,3]);
+    const [trending, setTrending] = useState([1,2,3]);
+    const [upcoming, setUpcoming] = useState([1,2,3]);
+    const [topRated, setTopRated] = useState([1,2,3]);
 
 
     return (
