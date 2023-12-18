@@ -8,6 +8,7 @@ import { styles, theme } from '../theme';
 import { LinearGradient } from 'expo-linear-gradient'
 import Cast from '../components/cast';
 import MovieList from '../components/movieList';
+import Loading from '../components/loading';
 
 const ios = Platform.OS == 'ios';
 const topMargin = ios? '':' mt-3';
@@ -19,6 +20,8 @@ export default function MovieScreen() {
     const navigation = useNavigation();
     const [cast, setCast] = useState([1,2,3,4,5]);
     const [similarMovies, setSimilarMovies] = useState([1,2,3,4,5]);
+    const [loading, setLoading] = useState(false);
+
     let movieName = 'Ant-Man and the Wasp: Quantumania';
     useEffect(() => {
         // call the movie details api
@@ -40,19 +43,26 @@ export default function MovieScreen() {
                     <HeartIcon size="35" color={isFavourite? theme.background : "white"} />
                 </TouchableOpacity>
             </SafeAreaView>
-            <View>
-                <Image
-                source={require('../assets/images/moviePoster2.png')}
-                style={{width, height: height*0.55}}
-                />
-            </View>
-            <LinearGradient 
-                colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']} 
-                style={{width, height: height*0.40}}
-                start={{ x: 0.5, y: 0 }}
-                end={{ x: 0.5, y: 1 }}
-                className="absolute bottom-0"
-            />
+            {
+                loading?(
+                    <Loading />
+                ):(
+                    <View>
+                        <Image
+                        source={require('../assets/images/moviePoster2.png')}
+                        style={{width, height: height*0.55}}
+                        />
+                    
+                    <LinearGradient 
+                        colors={['transparent', 'rgba(23, 23, 23, 0.8)', 'rgba(23, 23, 23, 1)']} 
+                        style={{width, height: height*0.40}}
+                        start={{ x: 0.5, y: 0 }}
+                        end={{ x: 0.5, y: 1 }}
+                        className="absolute bottom-0"
+                    />
+                    </View>
+                )
+            }
         </View>
         
         {/* movie details */}
