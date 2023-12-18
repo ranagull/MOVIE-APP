@@ -1,7 +1,8 @@
 import { View, Text, Dimensions, ScrollView, Platform, TouchableOpacity, SafeAreaView, Image } from 'react-native'
 import React, { useState } from 'react'
 import { useRoute, useNavigation  } from '@react-navigation/native';
-import { ChevronLeftIcon, HeartIcon } from 'react-native-heroicons/outline';
+import { ChevronLeftIcon} from 'react-native-heroicons/outline';
+import { HeartIcon } from 'react-native-heroicons/solid'
 import { styles } from '../theme';
 import MovieList from '../components/movieList';
 
@@ -12,7 +13,7 @@ const verticalMargin = ios? '' : 'my-6';
 export default function PersonScreen() {
     const navigation = useNavigation();
     const [isFavourite, toggleFavourite] = useState(false);
-    const [personMovies, setPersonMovies] = useState([1,2,3,4])
+    const [personMovies, setPersonMovies] = useState([1,2,3,4]);
   return (
     <ScrollView className="flex-1 bg-neutral-900" contentContainerStyle={{paddingBottom: 20}}>
 
