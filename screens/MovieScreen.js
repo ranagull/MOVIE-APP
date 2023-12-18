@@ -15,7 +15,7 @@ var {width, height} = Dimensions.get('window');
 
 export default function MovieScreen() {
     const {params: item} = useRoute();
-    const [isFavourite, toogleFavourite] = useState(false);
+    const [isFavourite, toggleFavourite] = useState(false);
     const navigation = useNavigation();
     const [cast, setCast] = useState([1,2,3,4,5]);
     const [similarMovies, setSimilarMovies] = useState([1,2,3,4,5]);
@@ -36,7 +36,7 @@ export default function MovieScreen() {
                 <TouchableOpacity onPress={()=> navigation.goBack()} style={styles.background} className="rounded-xl p-1">
                     <ChevronLeftIcon size="28" strokeWidth={2.5} color="white" />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => toogleFavourite(!isFavourite)}>
+                <TouchableOpacity onPress={() => toggleFavourite(!isFavourite)}>
                     <HeartIcon size="35" color={isFavourite? theme.background : "white"} />
                 </TouchableOpacity>
             </SafeAreaView>

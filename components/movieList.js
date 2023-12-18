@@ -41,7 +41,7 @@ export default function MovieList({title, data, hideSeeAll}) {
                                 className="rounded-3xl"
                                 style={{width: width*0.33, height: height*0.22}}
                             />
-                            <Text className="text-neuutral-300 ml-1">
+                            <Text className="text-neutral-300 ml-1">
                                 {
                                     movieName.length>14? movieName.slice(0,14)+'...': movieName
                                 }
